@@ -156,3 +156,19 @@ window.addEventListener('scroll', () => {
         header.style.background = 'rgba(18, 18, 18, 0.98)';
     }
 });
+const whatsappForm = document.getElementById('whatsappForm');
+if (whatsappForm) {
+    whatsappForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // هذا السطر يمنع الصفحة من التحديث ويشغل الكود
+        
+        const name = document.getElementById('clientName').value;
+        const phone = document.getElementById('clientPhone').value;
+        const service = document.getElementById('serviceType').value;
+        const details = document.getElementById('projectDetails').value;
+
+        const message = `*طلب جديد من الموقع*%0a*الاسم:* ${name}%0a*الجوال:* ${phone}%0a*الخدمة:* ${service}%0a*التفاصيل:* ${details}`;
+        
+        // فتح الواتساب
+        window.open(`https://wa.me/966593736902?text=${message}`, '_blank');
+    });
+}
